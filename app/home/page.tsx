@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import React, { Component } from 'react'
 import { Popover } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid'
 //import {Bars3Icon} from "@heroicons/react"
 
 export class home extends Component {
@@ -22,11 +23,32 @@ export class home extends Component {
         </div>
         <div className='flex grow items-center justify-end sm:hidden'>
         <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400
-        hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">Solutions</Popover.Button>
-        <span className='sr-only'>Õpen menu</span>
-       
+        hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+        <span className='sr-only'>Open Menu</span>
+        <Bars3Icon className='h-6 w-6' aria-hidden="true"/>
+        </Popover.Button>
         </div>
-        <div className='hidden'>
+
+        <Popover.Panel
+        focus
+        className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+        >
+          <div className='rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50'>
+            <div className='px-5 pt-5 pb-6'>
+              <div className='flex items-center justify-between'>
+                <h1 className='font-bold'>US Virtual</h1>
+                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span className='sr-only'>Close Menu</span>
+                  <XMarkIcon className='h-6 w-6' aria-hidden="true" />
+
+                </Popover.Button>
+              </div>
+
+            </div>
+          </div>
+        </Popover.Panel>  
+
+        <div className='hidden sm:block'>
             <Link href="#" className='mr-2 font-bold'>Sign up</Link>
             <Link href="#" className='font-bold'>Login</Link>
         </div>
